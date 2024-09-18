@@ -1,0 +1,10 @@
+name = "MyReplTest"
+uuid = "269616a3-f737-4ecc-9db8-f4988c691a26"
+version = "0.1.0"
+authors = ["Benjamin Lorenz <lorenz@math.tu-berlin.de>"]
+
+[deps]
+REPL = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
+
+[compat]
+REPL = "1.11.0"

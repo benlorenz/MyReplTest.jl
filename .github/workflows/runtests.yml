@@ -1,0 +1,29 @@
+name: Run tests
+
+on:
+   push:
+     branches:
+       - master
+   pull_request:
+     branches:
+       - master
+   workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        julia-version:
+          - 'nightly'
+        os: ['ubuntu-latest']
+      fail-fast: false
+    env:
+      JULIA_DEBUG: "loading"
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Set up Julia"
+        uses: julia-actions/setup-julia@v2
+        with:
+          version: ${{ matrix.julia-version }}
+      - uses: julia-actions/julia-runtest@v1
